@@ -1,0 +1,555 @@
+@charset "UTF-8";
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f6f6f6;
+  margin: 0 auto;
+  max-width: 767px;
+}
+body a {
+  text-decoration: none;
+  color: inherit;
+}
+body p {
+  font-weight: 300;
+}
+
+header {
+  position: relative;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1490196078);
+}
+header .arrow {
+  position: absolute;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  font-size: 1.5rem;
+}
+header .title {
+  font-family: "Shrikhand", sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+/***Page d'accueil et patterns généraux réutilisés dans les autres pages***/
+nav .localisation {
+  display: flex;
+  justify-content: center;
+  background-color: #EAEAEA;
+  gap: 1em;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2509803922);
+}
+nav .localisation i {
+  margin: auto 0;
+}
+nav .localisation p {
+  font-weight: 500;
+}
+nav .material-symbols-outlined {
+  display: flex;
+  align-items: center;
+}
+nav .navbar {
+  text-align: center;
+  margin: 0 0.5rem;
+}
+nav .navbar-title {
+  padding: 20px 0 0 0;
+  font-size: 24px;
+}
+nav .navbar-description {
+  color: #353535;
+  font-size: 18px;
+}
+nav .navbar-button {
+  padding-top: 0.5rem;
+  padding-bottom: 3rem;
+}
+nav .navbar-button button {
+  border-radius: 25px;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2509803922);
+  background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
+  padding: 15px;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+nav .navbar-button button:hover {
+  background: linear-gradient(200.64deg, #9356DC -5.2%, #FF79DA 110.74%); /* ici on ne peut pas utiliser brightness car ça éclaircirait le texte aussi. Or, on nous demande d'éclaircir le fond*/
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.3490196078);
+  transition-duration: 0.25s;
+}
+
+.fonctionnement {
+  padding: 3rem 0;
+  background-color: white;
+}
+.fonctionnement .fonctionnement-title {
+  padding: 0 1rem;
+}
+.fonctionnement .fonctionnement-content {
+  counter-reset: steps;
+}
+.fonctionnement .fonctionnement-content ol {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  list-style-type: none;
+  padding-right: 1rem;
+}
+.fonctionnement .fonctionnement-content li {
+  position: relative;
+  padding: 2rem;
+  flex-grow: 1;
+  border-radius: 20px;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1490196078);
+}
+.fonctionnement .fonctionnement-content li::before {
+  counter-increment: steps;
+  content: counter(steps);
+  color: white;
+  background-color: #9356DC;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  left: -1rem;
+}
+.fonctionnement .fonctionnement-content .fonctionnement-card {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.fonctionnement .fonctionnement-content .fonctionnement-card i {
+  font-size: 1.5rem;
+  color: #7E7E7E;
+}
+.fonctionnement .fonctionnement-content #purpleicon {
+  color: #9356DC;
+}
+
+.restaurants {
+  padding: 3rem 0;
+  padding: 0 1rem;
+}
+.restaurants .restaurant-card {
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1019607843);
+  margin: 2rem 0;
+  position: relative;
+}
+.restaurants .restaurant-card .restaurant-card-description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+.restaurants .restaurant-card .restaurant-card-description .restaurant-card-description-text {
+  margin: 0.5rem;
+}
+.restaurants .restaurant-card .restaurant-card-description .restaurant-card-description-text h4 {
+  margin: 0.3rem;
+}
+.restaurants .restaurant-card .restaurant-card-description .restaurant-card-description-text p {
+  margin: 0.3rem;
+}
+.restaurants .restaurant-card .restaurant-card-description button {
+  background: none;
+  border: none;
+  position: relative;
+  cursor: pointer;
+}
+.restaurants .restaurant-card .restaurant-card-description button i {
+  font-size: 1.5rem;
+}
+.restaurants .restaurant-card .restaurant-card-description button .fa-regular {
+  position: absolute;
+  bottom: 0rem;
+  right: 0.5rem;
+}
+.restaurants .restaurant-card .restaurant-card-description button .fa-solid {
+  position: absolute;
+  bottom: 0rem;
+  right: 0.5rem;
+  transition: all ease-in-out 200ms;
+  color: transparent;
+}
+.restaurants .restaurant-card .restaurant-card-description button .fa-solid:hover {
+  opacity: 1;
+  background: linear-gradient(to bottom, #FF79DA, #9356DC);
+  -webkit-background-clip: text;
+          background-clip: text;
+}
+.restaurants .restaurant-card img {
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+  height: 12rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.restaurants .restaurant-card .nouveau {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #99E2D0;
+  color: #008766;
+  padding: 0.5rem;
+  width: 5rem;
+  text-align: center;
+}
+
+footer {
+  background-color: #353535;
+  padding: 22px 25px;
+}
+footer .footer-content {
+  display: flex;
+  flex-direction: column;
+  color: #FFFFFF;
+}
+footer .footer-content .footer-title {
+  font-family: "Shrikhand", sans-serif;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+footer .footer-content .footer-text, footer .footer-content .proposerdevenir, footer .footer-content .mentionlegalescontact {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+footer .footer-content i {
+  padding-right: 0.5rem;
+}
+
+/***Spécifique aux pages des restaurants***/
+.menu-picture img {
+  width: 100%;
+  height: 275px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.menu-text {
+  border-radius: 40px 40px 0 0;
+  position: relative;
+  margin-top: -3rem;
+  background-color: #f6f6f6;
+}
+.menu-text .restaurant-name {
+  font-family: "Shrikhand", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 1.5rem;
+}
+.menu-text .restaurant-name .restaurant-name-heart button {
+  background: none;
+  border: none;
+  position: relative;
+  cursor: pointer;
+}
+.menu-text .restaurant-name .restaurant-name-heart button i {
+  font-size: 1.5rem;
+}
+.menu-text .restaurant-name .restaurant-name-heart button .fa-regular {
+  position: absolute;
+  bottom: 0rem;
+  right: 0.5rem;
+}
+.menu-text .restaurant-name .restaurant-name-heart button .fa-solid {
+  position: absolute;
+  bottom: 0rem;
+  right: 0.5rem;
+  transition: all ease-in-out 200ms;
+  color: transparent;
+}
+.menu-text .restaurant-name .restaurant-name-heart button .fa-solid:hover {
+  opacity: 1;
+  background: linear-gradient(to bottom, #FF79DA, #9356DC);
+  -webkit-background-clip: text;
+          background-clip: text;
+}
+.menu-text .menu-text-title {
+  padding: 0 1rem;
+}
+.menu-text .menu-text-title p {
+  margin-bottom: 0;
+}
+.menu-text .menu-text-title .line {
+  border-top: 3px solid #99E2D0;
+  width: 2.5rem;
+}
+.menu-text ul {
+  padding: 0;
+}
+.menu-text ul li {
+  padding: 0.5rem;
+  list-style-type: none;
+}
+.menu-text .menu-text-card {
+  background-color: white;
+  box-shadow: 0px 4.01px 15.04px 0px rgba(0, 0, 0, 0.1019607843);
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+.menu-text .menu-text-card .meal {
+  margin: 0.5rem;
+  min-width: 0;
+}
+.menu-text .menu-text-card .meal h3, .menu-text .menu-text-card .meal p {
+  margin: 0.5rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+}
+.menu-text .menu-text-card .priceandcheck {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.menu-text .menu-text-card .priceandcheck .price {
+  display: flex;
+  height: 100%;
+  align-items: end;
+  padding-bottom: 2rem;
+}
+.menu-text .menu-text-card .priceandcheck .checkbox {
+  background-color: #99E2D0;
+  color: #FFF;
+  font-size: 1.25rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  width: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: -4rem;
+  height: 100%;
+  transition: margin-right 750ms ease;
+}
+.menu-text .menu-text-card:hover .checkbox {
+  margin-right: 0rem;
+}
+
+.command-button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+.command-button button {
+  border-radius: 25px;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2509803922);
+  background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
+  padding: 15px;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  padding: 1rem 3rem;
+  margin: 2rem;
+}
+.command-button button:hover {
+  background: linear-gradient(200.64deg, #9356DC -5.2%, #FF79DA 110.74%); /* ici on ne peut pas utiliser brightness car ça éclaircirait le texte aussi. Or, on nous demande d'éclaircir le fond*/
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.3490196078);
+  transition-duration: 0.25s;
+}
+
+/*loader*/
+.loader {
+  position: fixed;
+  display: grid;
+  place-items: center;
+  background-color: #9356DC;
+  z-index: 1;
+  inset: 0;
+  animation: welcome 1s forwards;
+  animation-delay: 2s;
+  transform: translateY(0);
+}
+
+@keyframes welcome {
+  to {
+    transform: translateY(100%);
+  }
+}
+.progress {
+  background: rgba(255, 255, 255, 0.1);
+  justify-content: flex-start;
+  border-radius: 100px;
+  align-items: center;
+  position: relative;
+  padding: 0 5px;
+  display: flex;
+  height: 2.5rem;
+  width: 18rem;
+}
+
+.progress-value {
+  animation: load 1.7s cubic-bezier(0.25, -0.03, 0, 1) forwards;
+  box-shadow: 0 10px 20px -10px white;
+  border-radius: 100px;
+  background: #99E2D0;
+  height: 1.85rem;
+  width: 0;
+}
+
+@keyframes load {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+/*menuappears */
+.menu-text-card {
+  animation: menuappears 1s ease forwards;
+  opacity: 0;
+}
+
+.menu-text li:nth-child(1) .menu-text-card {
+  animation-delay: 0s;
+}
+
+.menu-text li:nth-child(2) .menu-text-card {
+  animation-delay: 0.3s;
+}
+
+.menu-text li:nth-child(3) .menu-text-card {
+  animation-delay: 0.6s;
+}
+
+@keyframes menuappears {
+  from {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+/***Media query***/
+@media only screen and (min-width: 768px) {
+  body {
+    max-width: 100%;
+  }
+  body h3 {
+    font-size: 24px;
+  }
+  header {
+    background-color: white;
+  }
+  nav .navbar-title {
+    font-size: 40px;
+  }
+  nav .navbar-title h2 {
+    margin: 1rem 0;
+  }
+  nav .navbar-button {
+    padding-top: 0.5rem;
+    padding-bottom: 2rem;
+  }
+  main {
+    background-color: white;
+  }
+  .fonctionnement {
+    padding: 3rem 2rem;
+    margin: 0;
+  }
+  .fonctionnement .fonctionnement-content ol {
+    flex-direction: row;
+  }
+  .restaurants {
+    padding: 2rem 4rem;
+    background-color: #f6f6f6;
+  }
+  .restaurants h3 {
+    margin-top: 0;
+  }
+  .restaurants h4 {
+    font-size: 18px;
+  }
+  .restaurants p {
+    font-size: 17px;
+  }
+  .restaurants-content {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+  .restaurants-content a {
+    padding: 1rem;
+  }
+  .restaurants-content .restaurant-card {
+    margin: 0;
+  }
+  footer .footer-content {
+    flex-direction: row-reverse;
+    align-items: end;
+    margin-right: 0;
+  }
+  footer .footer-content .footer-title {
+    margin-bottom: 0;
+    margin-left: 3rem;
+  }
+  footer .footer-content .footer-text {
+    gap: 1rem;
+  }
+  footer .footer-content .footer-text, footer .footer-content .proposerdevenir, footer .footer-content .mentionlegalescontact {
+    flex-direction: row;
+  }
+  footer .footer-content .mentionlegalescontact, footer .footer-content .proposerdevenir {
+    gap: 1rem;
+  }
+  /***Loader***/
+  .progress {
+    width: 40rem;
+  }
+  /***Spécifique aux pages des restaurants***/
+  .menu-text {
+    margin: -3rem 4rem -3rem 4rem;
+    padding: 0 8rem;
+  }
+  .menu-text .restaurant-name {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    font-size: 28px;
+  }
+  .menu-text .menu-text-card .meal h3 {
+    font-size: 18px;
+  }
+  .menu-text .menu-text-card .meal p {
+    font-size: 15.04px;
+  }
+  .command-button {
+    padding-bottom: 1rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .fonctionnement {
+    padding: 3rem 7rem;
+  }
+  .restaurants {
+    padding: 2rem 7rem;
+  }
+  footer .footer-content {
+    margin-right: 5rem;
+  }
+  footer .footer-content .footer-title {
+    margin-left: 5rem;
+  }
+  footer .footer-content .footer-text {
+    gap: 5rem;
+  }
+  /***Spécifique aux pages des restaurants***/
+  .menu-text {
+    margin: -3rem 8rem -3rem 8rem;
+    padding: 0 12rem;
+  }
+}/*# sourceMappingURL=style.css.map */
